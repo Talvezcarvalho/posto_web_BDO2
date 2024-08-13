@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+		https://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="MysqlBairroDAO" primary="true"
+    class="br.edu.utfpr.tsi.DAO.MysqlBairroDAO">
+
+    <bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    >
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></bean>
+    <property name="url" value="jdbc:mysql://localhost:3306/posto.saude" />
+	<property name="username" value="root" />
+	<property name="password" value="Dinorega" />
+</beans>
