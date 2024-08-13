@@ -14,5 +14,4 @@ public interface BairroDAO {
 	public List<Bairro> listarTodos();
 	
 	public Bairro procurar(Long id);
-
 }
