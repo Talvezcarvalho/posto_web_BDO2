@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Posto de Saúde Web</title>
+</head>
+
+
+<body>
+	<h1>Cadastrar paciente</h1>
+
+	<form method="POST" action="cadastrarPaciente">
+		<label>Nome:</label>
+		<input type="text" name="nome" /> <br>
+
+		<label>Sobrenome:</label>
+		<input type="text" name="sobrenome" /> <br>
+
+		<label>Data Nascimento:</label>
+		<input type="date" name="dataNascimento" /> <br>
+
+		<label>Logradouro:</label>
+		<input type="text" name="endereco.logradouro" /> <br>
+
+		<label>Número:</label>
+		<input type="text" name="endereco.numero" /> <br>
+
+		<label>CEP:</label>
+		<input type="text" name="endereco.cep" />
+
+		<label>Bairro:</label>
+		<select name="endereco.bairro.id">
+			<option value="0">Escolha um bairro</option>
+			<option th:each="bairro : ${bairros}" th:value="${bairro.id}" th:text="${bairro.nome}"></option>
+		</select>
+		<br>
+
+		<input type="submit" value="cadastrar" />
+	</form>
+	
+</body>
+
+</html>
