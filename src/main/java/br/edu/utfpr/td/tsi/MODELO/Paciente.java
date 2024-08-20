@@ -2,33 +2,52 @@ package br.edu.utfpr.td.tsi.MODELO;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+
+
+
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+@Entity
+@Table(name = "paciente", schema = "posto.saude")
 public class Paciente {
-    private String id;
+
+	@Id
+	@Column(name = "idpaciente")
+	private String idPaciente;
+	
+	@Column(nullable = false, length = 100)
 	private String nome;
+
+	@Column(nullable = false, length = 100)
 	private String sobrenome;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "data_nascimento", nullable = false, length = 100)
 	private LocalDate dataNascimento;
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "idendereco", referencedColumnName = "idendereco")
 	private Endereco endereco;
 
 	public Paciente() {
 	}
 
-	public Paciente(String id, String nome, String sobrenome, LocalDate dataNascimento) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.dataNascimento = dataNascimento;
+	public void setIdPaciente(String idPaciente) {
+		this.idPaciente = idPaciente;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	public String getIdPaciente() {
+		return idPaciente;
 	}
 
 	public String getNome() {
