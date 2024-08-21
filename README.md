@@ -1,40 +1,40 @@
 # Posto de Saúde Web
 
-Este projeto é um sistema de gestão de centro de saúde baseado na web, construído com Spring Boot e Tailwind CSS.
+This project is a web-based health center management system built with Spring Boot and Tailwind CSS.
 
-## Índice
+## Table of Contents
 
-- [Pré-requisitos](#pré-requisitos)
-- [Configuração do Projeto](#configuração-do-projeto)
-- [Desenvolvimento](#desenvolvimento)
-- [Construção para Produção](#construção-para-produção)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Prerequisites](#prerequisites)
+- [Project Setup](#project-setup)
+- [Development](#development)
+- [Building for Production](#building-for-production)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
 
-## Pré-requisitos
+## Prerequisites
 
-Certifique-se de ter os seguintes itens instalados na sua máquina local:
+Ensure you have the following installed on your local machine:
 
-- JDK 11 ou superior
-- Maven 3.6+
-- Node.js 14.17.0 ou superior
-- npm 6+ ou superior
+- JDK 11 or later
+- Maven 3.6+ 
+- Node.js 14.17.0 or later
+- npm 6+ or later
 
-## Configuração do Projeto
+## Project Setup
 
-1. Clone o repositório:
+1. Clone the repository:
    ```
-   git clone <url-do-repositório>
+   git clone <repository-url>
    cd posto_web_BDO2
    ```
 
-2. Instale as dependências do npm:
+2. Install npm dependencies:
    ```
    npm install
    ```
 
-3. Configure o Tailwind CSS:
-   Certifique-se de ter um arquivo `tailwind.config.js` na raiz do seu projeto com o seguinte conteúdo:
+3. Set up Tailwind CSS:
+   Ensure you have a `tailwind.config.js` file in your project root with the following content:
 
    ```javascript
    module.exports = {
@@ -68,70 +68,70 @@ Certifique-se de ter os seguintes itens instalados na sua máquina local:
    }
    ```
 
-4. Crie um arquivo `src/main/resources/static/css/tailwind.css` com o seguinte conteúdo:
+4. Create a `src/main/resources/static/css/tailwind.css` file with the following content:
    ```css
    @tailwind base;
    @tailwind components;
    @tailwind utilities;
    ```
 
-## Desenvolvimento
+## Development
 
-Para rodar a aplicação em modo de desenvolvimento:
+To run the application in development mode:
 
 ```
 npm run dev
 ```
 
-Este comando inicia tanto a aplicação Spring Boot quanto o processo de monitoramento do Tailwind CSS simultaneamente.
+This command starts both the Spring Boot application and Tailwind CSS watch process concurrently.
 
-- O Spring Boot será executado em `http://localhost:8080`
-- O Tailwind CSS irá monitorar alterações e reconstruir o arquivo CSS automaticamente
+- Spring Boot will run on `http://localhost:8080`
+- Tailwind CSS will watch for changes and rebuild the CSS file automatically
 
-## Construção para Produção
+## Building for Production
 
-Para construir a aplicação para produção:
+To build the application for production:
 
 ```
 npm run build
 ```
 
-Este comando irá:
-1. Construir o arquivo CSS do Tailwind
-2. Compilar o código Java
-3. Empacotar a aplicação em um arquivo JAR
+This command will:
+1. Build the Tailwind CSS file
+2. Compile the Java code
+3. Package the application into a JAR file
 
-O arquivo JAR resultante estará no diretório `target`.
+The resulting JAR file will be in the `target` directory.
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 posto_web_BDO2/
 ├── src/
 │   ├── main/
-│   │   ├── java/          # Arquivos fonte Java
+│   │   ├── java/          # Java source files
 │   │   └── resources/
 │   │       ├── static/
 │   │       │   └── css/
-│   │       │       ├── tailwind.css  # Arquivo de entrada do Tailwind
-│   │       │       └── styles.css    # Arquivo CSS gerado
-│   │       └── templates/ # Templates Thymeleaf
-│   └── test/              # Arquivos de teste
-├── target/                # Arquivos compilados
-├── node_modules/          # Dependências do Node.js
-├── pom.xml                # Configuração do Maven
-├── package.json           # Configuração do npm
-├── tailwind.config.js     # Configuração do Tailwind CSS
-└── README.md              # Este arquivo
+│   │       │       ├── tailwind.css  # Tailwind input file
+│   │       │       └── styles.css    # Generated CSS file
+│   │       └── templates/ # Thymeleaf templates
+│   └── test/              # Test files
+├── target/                # Compiled files
+├── node_modules/          # Node.js dependencies
+├── pom.xml                # Maven configuration
+├── package.json           # npm configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+└── README.md              # This file
 ```
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Spring Boot 2.6.5
 - Thymeleaf
 - Tailwind CSS
 - Maven
-- Node.js e npm
+- Node.js and npm
 - MySQL
 
-Para mais detalhes sobre cada tecnologia e sua configuração, consulte a documentação respectiva.
+For more details on each technology and its configuration, please refer to the respective documentation.
