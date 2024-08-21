@@ -1,7 +1,7 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
 public class Endereco {
-    private Long id;
+  private Long id;
 	private String logradouro;
 	private String numero;
 	private String cep;

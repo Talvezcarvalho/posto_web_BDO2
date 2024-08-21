@@ -1,0 +1,23 @@
+{
+  "name": "posto_web_bdo2",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss -i src/main/resources/static/css/tailwind.css -o src/main/resources/static/css/styles.css",
+    "watch-css": "tailwindcss -i src/main/resources/static/css/tailwind.css -o src/main/resources/static/css/styles.css --watch",
+    "start-spring": "mvn spring-boot:run",
+    "dev": "concurrently -p \"[{name}]\" -n \"SPRING,TAILWIND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run start-spring\" \"npm run watch-css\"",
+    "build": "npm run build-css && mvn clean package"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "concurrently": "^6.2.0"
+  }
+}
