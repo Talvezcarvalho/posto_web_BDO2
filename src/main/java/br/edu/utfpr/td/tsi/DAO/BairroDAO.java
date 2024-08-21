@@ -2,10 +2,12 @@ package br.edu.utfpr.td.tsi.DAO;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 
 public interface BairroDAO {
-    public void inserir(Bairro bairro);
+  public void inserir(Bairro bairro);
 
 	public void atualizar(Long id, Bairro bairro);
 

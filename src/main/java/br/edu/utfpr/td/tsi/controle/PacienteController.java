@@ -12,10 +12,6 @@ import br.edu.utfpr.td.tsi.DAO.BairroDAO;
 import br.edu.utfpr.td.tsi.DAO.PacienteDAO;
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 import br.edu.utfpr.td.tsi.MODELO.Paciente;
-import br.edu.utfpr.td.tsi.service.PacienteServImpl;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class PacienteController {
@@ -25,9 +21,6 @@ public class PacienteController {
 
     @Autowired
     private BairroDAO bairroDAO;
-
-    @Autowired
-    private PacienteServImpl pacienteService;
 
     @GetMapping("/crudPacientes")
     public String paginaCrudPaciente(Model model) {
@@ -45,7 +38,7 @@ public class PacienteController {
 
     @PostMapping("/cadastrarPaciente")
     public String cadastrar(Paciente p) {
-        pacienteService.cadastrar(p);
+        pacienteDAO.inserir(p);
         return "redirect:/crudPacientes" ;
     }
  

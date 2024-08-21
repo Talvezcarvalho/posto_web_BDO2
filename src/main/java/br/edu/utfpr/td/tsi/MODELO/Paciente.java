@@ -3,22 +3,15 @@ package br.edu.utfpr.td.tsi.MODELO;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-
-
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-@Entity
-@Table(name = "paciente", schema = "posto.saude")
 public class Paciente {
 
 	@Id
