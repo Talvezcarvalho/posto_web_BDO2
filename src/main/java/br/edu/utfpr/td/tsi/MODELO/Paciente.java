@@ -1,77 +1,105 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
 import java.time.LocalDate;
-
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.CascadeType;
-
+import java.time.Period;
+import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+@Entity
+@Table(name = "pacientes")
 public class Paciente {
 
-	@Id
-	@Column(name = "idpaciente")
-	private String idPaciente;
-	
-	@Column(nullable = false, length = 100)
-	private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(nullable = false, length = 100)
-	private String sobrenome;
+    @Column(nullable = false, length = 100)
+    private String nome;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "data_nascimento", nullable = false, length = 100)
-	private LocalDate dataNascimento;
+    @Column(nullable = false, length = 100)
+    private String sobrenome;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "idendereco", referencedColumnName = "idendereco")
-	private Endereco endereco;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "data_nascimento", nullable = false)
+    private LocalDate dataNascimento;
 
-	public Paciente() {
-	}
+    @OneToOne(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY,
+        optional = false
+    )
+    @JoinColumn(name = "id_endereco", referencedColumnName = "id")
+    private Endereco endereco;
 
-	public void setIdPaciente(String idPaciente) {
-		this.idPaciente = idPaciente;
-	}
+    public Paciente() {}
 
-	public String getIdPaciente() {
-		return idPaciente;
-	}
+    public Paciente(String nome, String sobrenome, LocalDate dataNascimento) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.dataNascimento = dataNascimento;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
+    public String getSobrenome() {
+        return sobrenome;
+    }
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    // Metodos auxiliares
+    public String getNomeCompleto() {
+        return nome + " " + sobrenome;
+    }
+
+    public int getIdade() {
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
+    }
+
+    // Isso aqui é um método toString que foi gerado automaticamente pelo IDE
+    // serve para facilitar a visualização dos objetos
+    @Override
+    public String toString() {
+        return (
+            "Paciente [dataNascimento=" +
+            dataNascimento +
+            ", endereco=" +
+            endereco +
+            ", id=" +
+            id +
+            ", nome=" +
+            nome +
+            ", sobrenome=" +
+            sobrenome +
+            "]"
+        );
+    }
 }
