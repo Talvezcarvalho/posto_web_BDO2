@@ -1,6 +1,5 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
-import java.util.Collection;
 import javax.persistence.*;
 
 @Entity
