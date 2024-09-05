@@ -7,95 +7,63 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name = "endereco", schema = "posto_saude")
 public class Endereco {
+		
+	@Id
+	@Column(name = "idendereco")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;
+	private String logradouro;
+	private String numero;
+	private String cep;
+	
+	@ManyToOne
+	@JoinColumn(name = "idbairro", referencedColumnName = "idBairro")
+	private Bairro bairro;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	public Long getId() {
+		return id;
+	}
 
-    @Column(name = "logradouro", nullable = false)
-    private String logradouro;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Column(name = "numero")
-    private String numero;
+	public String getLogradouro() {
+		return logradouro;
+	}
 
-    @Column(name = "cep", nullable = false)
-    private String cep;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "id_bairro", referencedColumnName = "id")
-    private Bairro bairro;
+	public String getNumero() {
+		return numero;
+	}
 
-    @OneToOne(mappedBy = "endereco")
-    private Paciente paciente;
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 
-    public Endereco() {}
+	public String getCep() {
+		return cep;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Bairro getBairro() {
+		return bairro;
+	}
 
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public Bairro getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    @Override
-    public String toString() {
-        return (
-            "Endereco [bairro=" +
-            bairro +
-            ", cep=" +
-            cep +
-            ", id=" +
-            id +
-            ", logradouro=" +
-            logradouro +
-            ", numero=" +
-            numero +
-            "]"
-        );
-    }
+	public void setBairro(Bairro bairro) {
+		this.bairro = bairro;
+	}
+	
 }

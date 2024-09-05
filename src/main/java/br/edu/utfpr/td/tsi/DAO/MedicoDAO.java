@@ -15,7 +15,5 @@ public interface MedicoDAO {
 
     Medico procurarPorId(Long id);
 
-    Medico procurarPorCrm(String crm);
 
-    Medico procurarPorEmail(String email);
 }
