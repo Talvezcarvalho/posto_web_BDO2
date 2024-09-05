@@ -10,6 +10,7 @@ public class Paciente {
 
 	@Id
 	@Column(name = "idpaciente")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String idPaciente;
 
 	@Column(nullable = false, length = 100)

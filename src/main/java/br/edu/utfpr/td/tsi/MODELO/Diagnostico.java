@@ -6,10 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.TypeAlias;
 
 @Entity
 @Table(name = "diagnostico", schema = "posto_saude")
@@ -19,16 +19,24 @@ public class Diagnostico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDiagnostico;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idGravidade", referencedColumnName = "idGravidade")
     private Gravidade gravidade;
 
     @Column(nullable = false, length = 200)
     private String observacao;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idConsulta", referencedColumnName = "idConsulta")
-    
+    private Consulta consulta;  
+
+    @ManyToOne
+    @JoinColumn(name = "idDoenca", referencedColumnName = "idDoenca", nullable = false)
+    private Doenca doenca;
+
+
+
+
 
 
 }
