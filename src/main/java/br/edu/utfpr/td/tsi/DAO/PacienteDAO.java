@@ -11,7 +11,7 @@ public interface PacienteDAO {
 
     public void remover(String id);
 
-	public java.util.List<Paciente> listarTodos();
+	public List<Paciente> listarTodos();
 
     public Paciente procurar(String id);
 }

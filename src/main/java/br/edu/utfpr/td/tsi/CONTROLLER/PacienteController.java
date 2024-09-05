@@ -23,6 +23,8 @@ public class PacienteController {
 
     @GetMapping("/crudPacientes")
     public String paginaCrudPaciente(Model model) {
+        List<Paciente> pacientes = pacienteDAO.listarTodos();
+        model.addAttribute("pacientes", pacientes);
         return "crudPacientes";
     }
 
