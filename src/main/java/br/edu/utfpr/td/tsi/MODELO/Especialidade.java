@@ -25,4 +25,23 @@ public class Especialidade {
     @JoinColumn(name = "idespecialidade",
                 referencedColumnName = "idespecialidade")
     private Collection<Medico> medicos;
+
+    public Especialidade() {
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Long getIdEspecialidade() {
+        return idEspecialidade;
+    }
+
+    public void setIdEspecialidade(Long idEspecialidade) {
+        this.idEspecialidade = idEspecialidade;
+    }
 }

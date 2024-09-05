@@ -21,4 +21,38 @@ public class Medico {
     @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade")	
 	private Especialidade especialidade;
 
+    public Medico() {
+    }
+
+    public void setIdMedico(String idMedico) {
+        this.idMedico = idMedico;
+    }
+
+    public String getIdMedico() {
+        return idMedico;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
 }
