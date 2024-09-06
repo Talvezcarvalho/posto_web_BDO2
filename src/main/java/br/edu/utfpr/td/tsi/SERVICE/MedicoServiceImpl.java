@@ -24,4 +24,9 @@ public class MedicoServiceImpl implements MedicoService {
     public void remover(Long id) {
         medicoDAO.remover(id);
     }
+
+    @Override
+    public void salvarMedico(Medico medico) {
+        medicoDAO.inserir(medico);
+    }
 }

@@ -1,5 +1,6 @@
 package br.edu.utfpr.td.tsi.CONTROLLER;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,8 @@ import br.edu.utfpr.td.tsi.SERVICE.MedicoService;
 @Controller
 public class MedicoController {
 
-    private ;
+    @Autowired
+    private MedicoService medicoService;
 
     public MedicoController(MedicoService medicoService) {
         this.medicoService = medicoService;
