@@ -23,8 +23,6 @@ public class PacienteController {
     @Autowired
     private BairroDAO bairroService;
 
-
-
     @GetMapping("/acessoPaciente")
     public String paginaCrudPaciente(Model model) {
         List<Paciente> pacientes = pacienteService.listarTodos();
