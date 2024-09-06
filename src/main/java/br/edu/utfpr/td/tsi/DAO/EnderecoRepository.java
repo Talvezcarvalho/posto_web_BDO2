@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.edu.utfpr.td.tsi.MODELO.Endereco;
 
-public interface EnderecoRepository extends CrudRepository<Endereco, String> {
+public interface EnderecoRepository extends CrudRepository<Endereco, Long> {
 
     
 }

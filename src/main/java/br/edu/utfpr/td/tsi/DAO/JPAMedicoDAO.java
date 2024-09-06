@@ -1,9 +1,12 @@
 package br.edu.utfpr.td.tsi.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.MODELO.Medico;
 
+
+@Repository
 public class JPAMedicoDAO implements MedicoDAO{
     
     @Autowired
@@ -15,12 +18,12 @@ public class JPAMedicoDAO implements MedicoDAO{
     }
 
     @Override
-    public void atualizar(String id, Medico medico) {
+    public void atualizar(Long id, Medico medico) {
         medicoRepository.deleteById(id);
     }
 
     @Override
-    public void remover(String id) {
+    public void remover(Long id) {
         medicoRepository.deleteById(id);
     }
 
@@ -30,7 +33,7 @@ public class JPAMedicoDAO implements MedicoDAO{
     }
 
     @Override
-    public Medico procurarPorId(String id) {
+    public Medico procurarPorId(Long id) {
         return medicoRepository.findById(id).get();
     }
 }

@@ -1,9 +1,11 @@
 package br.edu.utfpr.td.tsi.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.MODELO.Consulta;
 
+@Repository
 public class JPAConsultaDAO implements ConsultaDAO {
     
 
@@ -29,5 +31,5 @@ public class JPAConsultaDAO implements ConsultaDAO {
     public Consulta procurar(Long idConsulta) {
         return consultaRepository.findById(idConsulta).get();
     }
-    
+
 }

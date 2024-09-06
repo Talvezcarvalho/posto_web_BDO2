@@ -7,5 +7,5 @@ public interface PacienteDAO {
 	
 	public java.util.List<Paciente> listarTodos();
 	
-	public void remover(String id);
+	public void remover(Long id);
 }

@@ -1,9 +1,12 @@
 package br.edu.utfpr.td.tsi.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.MODELO.Especialidade;
 
+
+@Repository
 public class JPAEspecialidadeDAO implements EspecialidadeDAO {
     
     @Autowired

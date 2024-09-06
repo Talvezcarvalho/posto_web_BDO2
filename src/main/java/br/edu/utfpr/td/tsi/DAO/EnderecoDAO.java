@@ -5,9 +5,9 @@ import br.edu.utfpr.td.tsi.MODELO.Endereco;
 public interface EnderecoDAO {
     public void inserir(Endereco endereco);
 
-    public void atualizar(String idPaciente, Endereco endereco);
+    public void atualizar(Long idPaciente, Endereco endereco);
 
-    public void remover(String idPaciente);
+    public void remover(Long idPaciente);
 
-    public Endereco procurar(String idPaciente);
+    public Endereco procurar(Long idPaciente);
 }
