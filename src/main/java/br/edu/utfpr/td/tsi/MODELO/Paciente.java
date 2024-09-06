@@ -5,13 +5,13 @@ import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "paciente", schema = "posto.saude")
+@Table(name = "paciente", schema = "posto_saude")
 public class Paciente {
 
 	@Id
 	@Column(name = "idpaciente")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String idPaciente;
+	private Long idPaciente;
 
 	@Column(nullable = false, length = 100)
 	private String nome;
@@ -30,11 +30,11 @@ public class Paciente {
 	public Paciente() {
 	}
 
-	public void setIdPaciente(String idPaciente) {
+	public void setIdPaciente(Long idPaciente) {
 		this.idPaciente = idPaciente;
 	}
 
-	public String getIdPaciente() {
+	public Long getIdPaciente() {
 		return idPaciente;
 	}
 

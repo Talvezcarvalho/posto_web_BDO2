@@ -3,12 +3,12 @@ package br.edu.utfpr.td.tsi.MODELO;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "medico", schema = "posto.saude")
+@Table(name = "medico", schema = "posto_saude")
 public class Medico {
 
     @Id
     @Column(name = "idmedico")
-    private String idMedico;
+    private Long idMedico;
 
     @Column(nullable = false, length = 100)
     private String nome;
@@ -16,18 +16,18 @@ public class Medico {
     @Column(nullable = false, length = 100)
     private String sobrenome;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade")	
 	private Especialidade especialidade;
 
     public Medico() {
     }
 
-    public void setIdMedico(String idMedico) {
+    public void setIdMedico(Long idMedico) {
         this.idMedico = idMedico;
     }
 
-    public String getIdMedico() {
+    public Long getIdMedico() {
         return idMedico;
     }
 

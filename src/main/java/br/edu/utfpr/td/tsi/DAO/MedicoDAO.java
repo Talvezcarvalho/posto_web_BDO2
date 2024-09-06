@@ -1,19 +1,18 @@
 package br.edu.utfpr.td.tsi.DAO;
 
-import java.util.List;
 
 import br.edu.utfpr.td.tsi.MODELO.Medico;
 
 public interface MedicoDAO {
-    void inserir(Medico medico);
+    public void inserir(Medico medico);
 
-    void atualizar(Long id, Medico medico);
+    public void atualizar(String id, Medico medico);
 
-    void remover(Long id);
+    public void remover(String id);
 
-    List<Medico> listarTodos();
+	public java.util.List<Medico> listarTodos();
 
-    Medico procurarPorId(Long id);
+    public Medico procurarPorId(String id);
 
 
 }

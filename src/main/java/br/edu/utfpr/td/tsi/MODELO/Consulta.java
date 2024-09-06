@@ -2,7 +2,6 @@ package br.edu.utfpr.td.tsi.MODELO;
 
 import java.time.LocalDate;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,16 +26,20 @@ public class Consulta {
     @Column(name = "data_consulta", nullable = false, length = 100)
     private LocalDate dataConsulta;
 
+    @Column(name = "situacao", nullable = false, length = 100)
+    private String situacao;
+
+
     @ManyToOne
-    @JoinColumn(name = "idMedico", referencedColumnName = "idMedico")
+    @JoinColumn(name = "idMedico", referencedColumnName = "idMedico",nullable = false)
     private Medico medico;
 
     @ManyToOne
-    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
+    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente",nullable = false)
     private Paciente paciente;
 
     @ManyToOne
-    @JoinColumn(name = "idDiagnostico", referencedColumnName = "idDiagnostico")
+    @JoinColumn(name = "idDiagnostico", referencedColumnName = "idDiagnostico" ,nullable = true)
     private Diagnostico diagnostico;
 
     public Consulta() {
@@ -82,5 +85,12 @@ public class Consulta {
         this.diagnostico = diagnostico;
     }
 
+    public String getSituacao() {
+        return situacao;
+    }
 
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+    
 }

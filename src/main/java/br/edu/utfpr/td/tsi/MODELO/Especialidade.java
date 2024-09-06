@@ -21,9 +21,7 @@ public class Especialidade {
     private Long idEspecialidade;
     private String descricao;
     
-    @OneToMany
-    @JoinColumn(name = "idespecialidade",
-                referencedColumnName = "idespecialidade")
+    @OneToMany(mappedBy = "especialidade")
     private Collection<Medico> medicos;
 
     public Especialidade() {

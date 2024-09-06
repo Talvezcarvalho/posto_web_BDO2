@@ -10,7 +10,7 @@ public class JPAEnderecoDAO implements EnderecoDAO {
     EnderecoRepository enderecoRepository;
 
     @Override
-    public void inserir(Endereco endereco, String idPaciente) {
+    public void inserir(Endereco endereco) {
         enderecoRepository.save(endereco);
     }
 

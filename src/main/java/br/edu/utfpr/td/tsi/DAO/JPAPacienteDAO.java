@@ -25,7 +25,4 @@ public class JPAPacienteDAO implements PacienteDAO {
     public void remover(String id) {
         pacienteRepository.deleteById(id);
     }
-
-
-
 }
