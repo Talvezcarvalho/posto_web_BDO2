@@ -25,5 +25,4 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
         especialidadeDAO.remover(id);
     }
     
-
 }
