@@ -4,6 +4,7 @@ import br.edu.utfpr.td.tsi.DAO.BairroDAO;
 import br.edu.utfpr.td.tsi.DAO.PacienteDAO;
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 import br.edu.utfpr.td.tsi.MODELO.Paciente;
+import br.edu.utfpr.td.tsi.SERVICE.PacienteService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PacienteController {
 
     @Autowired
-    private PacienteDAO pacienteDAO;
+    private PacienteService pacienteService;
 
     @Autowired
-    private BairroDAO bairroDAO;
+    private Endereco bairroDAO;
 
     @GetMapping("/crudPacientes")
     public String paginaCrudPaciente(Model model) {
