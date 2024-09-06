@@ -12,8 +12,6 @@ public interface PacienteService {
 
     public void remover(Long id);
 
-    public Paciente procurar(Long id);
 
-    public void alterar(Long id, Paciente paciente);
 } 
 
