@@ -11,7 +11,7 @@ import br.edu.utfpr.td.tsi.SERVICE.MedicoService;
 @Controller
 public class MedicoController {
 
-    private final MedicoService medicoService;
+    private ;
 
     public MedicoController(MedicoService medicoService) {
         this.medicoService = medicoService;
