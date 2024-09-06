@@ -4,6 +4,7 @@ import br.edu.utfpr.td.tsi.DAO.BairroDAO;
 import br.edu.utfpr.td.tsi.DAO.PacienteDAO;
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 import br.edu.utfpr.td.tsi.MODELO.Paciente;
+import br.edu.utfpr.td.tsi.SERVICE.EnderecoService;
 import br.edu.utfpr.td.tsi.SERVICE.PacienteService;
 
 import java.util.List;
@@ -20,25 +21,27 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @Autowired
-    private Endereco bairroDAO;
+    private BairroDAO bairroService;
 
-    @GetMapping("/crudPacientes")
+
+
+    @GetMapping("/acessoPaciente")
     public String paginaCrudPaciente(Model model) {
-        List<Paciente> pacientes = pacienteDAO.listarTodos();
+        List<Paciente> pacientes = pacienteService.listarTodos();
         model.addAttribute("pacientes", pacientes);
-        return "crudPacientes";
+        return "acessoPaciente";
     }
 
     @GetMapping(value = "/cadastrarPaciente")
     public String paginaCadastroPaciente(Model model) {
-        List<Bairro> bairros = bairroDAO.listarTodos();
+        List<Bairro> bairros = bairroService.listarTodos();
         model.addAttribute("bairros", bairros);
         return "cadastrarPaciente";
     }
 
     @PostMapping("/cadastrarPaciente")
     public String cadastrar(Paciente p) {
-        pacienteDAO.inserir(p);
-        return "redirect:/crudPacientes";
+        pacienteService.cadastrar(p);
+        return "redirect:/acessoPaciente";
     }
 }
