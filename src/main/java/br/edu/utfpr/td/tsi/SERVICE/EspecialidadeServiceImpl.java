@@ -22,8 +22,7 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     }
     @Override
     public void remover(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remover'");
+        especialidadeDAO.remover(id);
     }
     
 
