@@ -10,8 +10,7 @@
     <select name="medico.especialidade">
         <option value="0">Selecione a especialidade</option>
         <option th:each="especialidade : ${especialidades}" 
-            th:value="${especialidade.id}" th:text="${especialidade.nome}"></option>
-        
+            th:value="${especialidade.id}" th:text="${especialidade.nome}"></option>     
     </select>   
 </body>
 </html>
