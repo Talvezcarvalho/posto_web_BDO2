@@ -1,30 +1,19 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "bairro", schema = "posto_saude")
 public class Bairro {
 
-    @Id
-    @Column(name = "idBairro")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "nome", nullable = false)
     private String nome;
 
+    // Construtor vazio (padrão)
     public Bairro() {}
 
+    // Construtor com parâmetros
     public Bairro(String nome) {
         this.nome = nome;
     }
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -41,6 +30,7 @@ public class Bairro {
         this.nome = nome;
     }
 
+    // Método toString()
     @Override
     public String toString() {
         return "Bairro [id=" + id + ", nome=" + nome + "]";

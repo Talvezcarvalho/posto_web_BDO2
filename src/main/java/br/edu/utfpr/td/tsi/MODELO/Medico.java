@@ -1,34 +1,23 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "medico", schema = "posto_saude")
 public class Medico {
 
-    @Id
-    @Column(name = "idmedico")
     private Long idMedico;
-
-    @Column(nullable = false, length = 100)
     private String nome;
-
-    @Column(nullable = false, length = 100)
     private String sobrenome;
+    private Especialidade especialidade;
 
-    @OneToOne
-    @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade")	
-	private Especialidade especialidade;
-
+    // Construtor vazio
     public Medico() {
+    }
+
+    // Getters e Setters
+    public Long getIdMedico() {
+        return idMedico;
     }
 
     public void setIdMedico(Long idMedico) {
         this.idMedico = idMedico;
-    }
-
-    public Long getIdMedico() {
-        return idMedico;
     }
 
     public String getNome() {
@@ -54,4 +43,12 @@ public class Medico {
     public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
     }
+
+    // Método toString
+    @Override
+    public String toString() {
+        return "Medico [idMedico=" + idMedico + ", nome=" + nome + ", sobrenome=" + sobrenome 
+               + ", especialidade=" + especialidade + "]";
+    }
 }
+

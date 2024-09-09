@@ -1,9 +1,10 @@
-package br.edu.utfpr.td.tsi.DAO;
+package br.edu.utfpr.td.tsi.DAO.JPA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.MODELO.Especialidade;
+import br.edu.utfpr.td.tsi.DAO.EspecialidadeDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.EspecialidadeEntity;
 
 
 @Repository
@@ -13,12 +14,12 @@ public class JPAEspecialidadeDAO implements EspecialidadeDAO {
     private EspecialidadeRepository especialidadeRepository;
 
     @Override
-    public void inserir(Especialidade especialidade) {
+    public void inserir(EspecialidadeEntity especialidade) {
         especialidadeRepository.save(especialidade);
     }
 
     @Override
-    public void atualizar(Long idEspecialidade, Especialidade especialidade) {
+    public void atualizar(Long idEspecialidade, EspecialidadeEntity especialidade) {
         especialidadeRepository.save(especialidade);
     }
 
@@ -28,12 +29,12 @@ public class JPAEspecialidadeDAO implements EspecialidadeDAO {
     }
 
     @Override
-    public Especialidade procurarPorId(Long idEspecialidade) {
+    public EspecialidadeEntity procurarPorId(Long idEspecialidade) {
         return especialidadeRepository.findById(idEspecialidade).get();
     }
 
     @Override
-    public java.util.List<Especialidade> listarTodos() {
-        return (java.util.List<Especialidade>) especialidadeRepository.findAll();
+    public java.util.List<EspecialidadeEntity> listarTodos() {
+        return (java.util.List<EspecialidadeEntity>) especialidadeRepository.findAll();
     }
 }

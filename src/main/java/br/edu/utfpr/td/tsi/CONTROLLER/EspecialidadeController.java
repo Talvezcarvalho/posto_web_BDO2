@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.EspecialidadeEntity;
 import br.edu.utfpr.td.tsi.SERVICE.EspecialidadeService;
-import br.edu.utfpr.td.tsi.MODELO.Especialidade;
 
 @Controller
 public class EspecialidadeController {
@@ -22,12 +22,12 @@ public class EspecialidadeController {
 
     @GetMapping("/CadastrarEspecialidade")
     public String CadastrarEspecialidade(Model model) {
-        model.addAttribute("especialidade", new Especialidade());
+        model.addAttribute("especialidade", new EspecialidadeEntity());
         return "CadastrarEspecialidade";
     }
 
     @PostMapping("/CadastrarEspecialidade")
-    public String CadastrarEspecialidade(@ModelAttribute("especialidade") Especialidade especialidade) {
+    public String CadastrarEspecialidade(@ModelAttribute("especialidade") EspecialidadeEntity especialidade) {
         especialidadeService.cadastrar(especialidade);
         return "redirect:/acessoEspecialidade";
     }

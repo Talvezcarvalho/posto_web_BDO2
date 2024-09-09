@@ -1,9 +1,10 @@
-package br.edu.utfpr.td.tsi.DAO;
+package br.edu.utfpr.td.tsi.DAO.JPA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.MODELO.Bairro;
+import br.edu.utfpr.td.tsi.DAO.BairroDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.BairroEntity;
 
 @Repository
 public class JPABairroDAO implements BairroDAO {
@@ -12,17 +13,17 @@ public class JPABairroDAO implements BairroDAO {
     BairroRepository bairroRepository;
 
     @Override
-    public void inserir(Bairro bairro) {
+    public void inserir(BairroEntity bairro) {
         bairroRepository.save(bairro);
     }
 
     @Override
-    public java.util.List<Bairro> listarTodos() {
-        return (java.util.List<Bairro>) bairroRepository.findAll();
+    public java.util.List<BairroEntity> listarTodos() {
+        return (java.util.List<BairroEntity>) bairroRepository.findAll();
     }
 
     @Override
-    public void atualizar(Long idBairro, Bairro bairro) {
+    public void atualizar(Long idBairro, BairroEntity bairro) {
         bairroRepository.save(bairro);
     }
 
@@ -32,7 +33,7 @@ public class JPABairroDAO implements BairroDAO {
     }
 
     @Override
-    public Bairro procurar(Long idBairro) {
+    public BairroEntity procurar(Long idBairro) {
         return bairroRepository.findById(idBairro).get();
     }
 

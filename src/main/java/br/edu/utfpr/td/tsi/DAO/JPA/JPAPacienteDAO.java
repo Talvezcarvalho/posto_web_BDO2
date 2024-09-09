@@ -1,11 +1,12 @@
-package br.edu.utfpr.td.tsi.DAO;
+package br.edu.utfpr.td.tsi.DAO.JPA;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.MODELO.Paciente;
+import br.edu.utfpr.td.tsi.DAO.PacienteDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.PacienteEntity;
 
 @Repository
 public class JPAPacienteDAO implements PacienteDAO {
@@ -14,13 +15,13 @@ public class JPAPacienteDAO implements PacienteDAO {
     PacienteRepository pacienteRepository;
 
     @Override
-    public void inserir(Paciente paciente) {
+    public void inserir(PacienteEntity paciente) {
         pacienteRepository.save(paciente);
     }
 
     @Override
-    public List<Paciente> listarTodos() {
-        return (List<Paciente>) pacienteRepository.findAll();
+    public List<PacienteEntity> listarTodos() {
+        return (List<PacienteEntity>) pacienteRepository.findAll();
     }
 
     @Override

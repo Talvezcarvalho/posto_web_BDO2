@@ -2,43 +2,44 @@ package br.edu.utfpr.td.tsi.MODELO;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "especialidade", schema = "posto_saude")
 public class Especialidade {
-    
-    @Id
-    @Column(name = "idespecialidade")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idEspecialidade;
     private String descricao;
-    
-    @OneToMany(mappedBy = "especialidade")
     private Collection<Medico> medicos;
 
+    // Construtor vazio
     public Especialidade() {
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
+    // Getters e Setters
     public Long getIdEspecialidade() {
         return idEspecialidade;
     }
 
     public void setIdEspecialidade(Long idEspecialidade) {
         this.idEspecialidade = idEspecialidade;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Collection<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public void setMedicos(Collection<Medico> medicos) {
+        this.medicos = medicos;
+    }
+
+    // Método toString
+    @Override
+    public String toString() {
+        return "Especialidade [idEspecialidade=" + idEspecialidade + ", descricao=" + descricao + "]";
     }
 }

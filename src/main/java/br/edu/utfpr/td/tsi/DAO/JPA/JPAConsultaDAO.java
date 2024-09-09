@@ -1,9 +1,10 @@
-package br.edu.utfpr.td.tsi.DAO;
+package br.edu.utfpr.td.tsi.DAO.JPA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.MODELO.Consulta;
+import br.edu.utfpr.td.tsi.DAO.ConsultaDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.ConsultaEntity;
 
 @Repository
 public class JPAConsultaDAO implements ConsultaDAO {
@@ -13,12 +14,12 @@ public class JPAConsultaDAO implements ConsultaDAO {
     ConsultaRepository consultaRepository;
 
     @Override
-    public void inserir(Consulta consulta) {
+    public void inserir(ConsultaEntity consulta) {
         consultaRepository.save(consulta);
     }
 
     @Override
-    public void atualizar(Long idConsulta, Consulta consulta) {
+    public void atualizar(Long idConsulta, ConsultaEntity consulta) {
         consultaRepository.save(consulta);
     }
 
@@ -28,7 +29,7 @@ public class JPAConsultaDAO implements ConsultaDAO {
     }
 
     @Override
-    public Consulta procurar(Long idConsulta) {
+    public ConsultaEntity procurar(Long idConsulta) {
         return consultaRepository.findById(idConsulta).get();
     }
 

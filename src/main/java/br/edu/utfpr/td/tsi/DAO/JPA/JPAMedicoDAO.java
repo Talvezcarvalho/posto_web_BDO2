@@ -1,9 +1,10 @@
-package br.edu.utfpr.td.tsi.DAO;
+package br.edu.utfpr.td.tsi.DAO.JPA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.MODELO.Medico;
+import br.edu.utfpr.td.tsi.DAO.MedicoDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
 
 
 @Repository
@@ -13,12 +14,12 @@ public class JPAMedicoDAO implements MedicoDAO{
     MedicoRepository medicoRepository;
 
     @Override
-    public void inserir(Medico medico) {
+    public void inserir(MedicoEntity medico) {
         medicoRepository.save(medico);
     }
 
     @Override
-    public void atualizar(Long id, Medico medico) {
+    public void atualizar(Long id, MedicoEntity medico) {
         medicoRepository.deleteById(id);
     }
 
@@ -28,12 +29,12 @@ public class JPAMedicoDAO implements MedicoDAO{
     }
 
     @Override
-    public java.util.List<Medico> listarTodos() {
-        return (java.util.List<Medico>) medicoRepository.findAll();
+    public java.util.List<MedicoEntity> listarTodos() {
+        return (java.util.List<MedicoEntity>) medicoRepository.findAll();
     }
 
     @Override
-    public Medico procurarPorId(Long id) {
+    public MedicoEntity procurarPorId(Long id) {
         return medicoRepository.findById(id).get();
     }
 }

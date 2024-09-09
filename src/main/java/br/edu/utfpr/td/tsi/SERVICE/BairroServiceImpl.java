@@ -4,8 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.utfpr.td.tsi.DAO.JPABairroDAO;
-import br.edu.utfpr.td.tsi.MODELO.Bairro;
+import br.edu.utfpr.td.tsi.DAO.JPA.JPABairroDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.BairroEntity;
 
 @Service
 public class BairroServiceImpl implements BairroService {
@@ -14,7 +14,7 @@ public class BairroServiceImpl implements BairroService {
     private JPABairroDAO bairroDAO;
 
     @Override
-    public void cadastrarBairro(Bairro bairro) {
+    public void cadastrarBairro(BairroEntity bairro) {
         bairroDAO.inserir(bairro);
     }
 
@@ -24,7 +24,7 @@ public class BairroServiceImpl implements BairroService {
     }
 
     @Override
-    public List<Bairro> listarBairros() {
+    public List<BairroEntity> listarBairros() {
         return bairroDAO.listarTodos();
     }
 

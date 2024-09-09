@@ -1,18 +1,18 @@
 package br.edu.utfpr.td.tsi.DAO;
 
 
-import br.edu.utfpr.td.tsi.MODELO.Medico;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
 
 public interface MedicoDAO {
-    public void inserir(Medico medico);
+    public void inserir(MedicoEntity medico);
 
-    public void atualizar(Long id, Medico medico);
+    public void atualizar(Long id, MedicoEntity medico);
 
     public void remover(Long id);
 
-	public java.util.List<Medico> listarTodos();
+	public java.util.List<MedicoEntity> listarTodos();
 
-    public Medico procurarPorId(Long id);
+    public MedicoEntity procurarPorId(Long id);
 
 
 }

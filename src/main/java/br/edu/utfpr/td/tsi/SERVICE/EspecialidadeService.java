@@ -1,12 +1,13 @@
 package br.edu.utfpr.td.tsi.SERVICE;
 
-import br.edu.utfpr.td.tsi.MODELO.Especialidade;
 import java.util.List;
 
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.EspecialidadeEntity;
+
 public interface EspecialidadeService {
-    public void cadastrar(Especialidade especialidade);
+    public void cadastrar(EspecialidadeEntity especialidade);
     
-    public List<Especialidade> listarTodos();
+    public List<EspecialidadeEntity> listarTodos();
 
     public void remover(Long id);
 }
