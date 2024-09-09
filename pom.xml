@@ -83,7 +83,11 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
                     </execution>
+
                     <execution>
                         <id>build-css</id>
                         <goals>
