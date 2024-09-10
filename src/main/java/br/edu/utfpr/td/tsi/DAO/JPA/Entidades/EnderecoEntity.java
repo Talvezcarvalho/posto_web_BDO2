@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.edu.utfpr.td.tsi.MODELO.Endereco;
+
 
 @Entity
 @Table(name = "endereco", schema = "posto_saude")
@@ -25,6 +27,28 @@ public class EnderecoEntity {
 	@ManyToOne
 	@JoinColumn(name = "idbairro", referencedColumnName = "idBairro")
 	private BairroEntity bairro;
+
+
+	public EnderecoEntity(Endereco endereco) {
+		this.id = endereco.getId();
+		this.logradouro = endereco.getLogradouro();
+		this.numero = endereco.getNumero();
+		this.cep = endereco.getCep();
+		this.bairro = new BairroEntity(endereco.getBairro());
+	}
+	
+	public EnderecoEntity() {
+	}
+
+	public Endereco converterParaModelo() {
+		Endereco endereco = new Endereco();
+		endereco.setId(id);
+		endereco.setLogradouro(logradouro);
+		endereco.setNumero(numero);
+		endereco.setCep(cep);
+		endereco.setBairro(bairro.converterParaModelo());
+		return endereco;
+	}
 
 	public Long getId() {
 		return id;

@@ -2,21 +2,23 @@ package br.edu.utfpr.td.tsi.SERVICE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.edu.utfpr.td.tsi.DAO.MedicoDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.JPAMedicoDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
+import br.edu.utfpr.td.tsi.MODELO.Medico;
 
 public class MedicoServiceImpl implements MedicoService { 
 
     @Autowired
-    private JPAMedicoDAO medicoDAO;
+    private MedicoDAO medicoDAO;
 
     @Override
-    public void cadastrar(MedicoEntity medico) {
+    public void cadastrar(Medico medico) {
         medicoDAO.inserir(medico);
     }
 
     @Override
-    public java.util.List<MedicoEntity> listarTodos() {
+    public java.util.List<Medico> listarTodos() {
         return medicoDAO.listarTodos();
     }
 
@@ -26,7 +28,7 @@ public class MedicoServiceImpl implements MedicoService {
     }
 
     @Override
-    public void salvarMedico(MedicoEntity medico) {
+    public void salvarMedico(Medico medico) {
         medicoDAO.inserir(medico);
     }
 }

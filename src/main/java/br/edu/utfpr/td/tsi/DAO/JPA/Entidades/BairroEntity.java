@@ -22,6 +22,12 @@ public class BairroEntity {
     private String nome;
 
     public BairroEntity() {}
+
+    public BairroEntity(Bairro bairro) {
+		this.id = bairro.getId();
+		this.nome = bairro.getNome();
+	}
+	
     
     public Bairro converterParaModelo() {
 		Bairro bairro = new Bairro();

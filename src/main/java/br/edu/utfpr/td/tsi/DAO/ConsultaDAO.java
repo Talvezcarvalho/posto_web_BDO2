@@ -1,13 +1,13 @@
 package br.edu.utfpr.td.tsi.DAO;
 
-import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.ConsultaEntity;
+import br.edu.utfpr.td.tsi.MODELO.Consulta;
 
 public interface ConsultaDAO {
-    public void inserir(ConsultaEntity consulta);
+    public void inserir(Consulta consulta);
 
-    public void atualizar(Long idConsulta, ConsultaEntity consulta);
+    public void atualizar(Long idConsulta, Consulta consulta);
 
     public void remover(Long idConsulta);
 
-    public ConsultaEntity procurar(Long idConsulta);
+    public Consulta procurar(Long idConsulta);
 }

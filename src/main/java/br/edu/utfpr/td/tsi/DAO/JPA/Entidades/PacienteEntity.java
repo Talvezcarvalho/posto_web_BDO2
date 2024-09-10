@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.edu.utfpr.td.tsi.MODELO.Paciente;
+
 @Entity
 @Table(name = "paciente", schema = "posto_saude")
 public class PacienteEntity {
@@ -29,7 +31,23 @@ public class PacienteEntity {
 
 	public PacienteEntity() {
 	}
-
+	public PacienteEntity(Paciente paciente) {
+		this.idPaciente = paciente.getIdPaciente();
+		this.nome = paciente.getNome();
+		this.dataNascimento = paciente.getDataNascimento();
+		this.sobrenome = paciente.getSobrenome();
+		this.endereco = new EnderecoEntity(paciente.getEndereco());
+	}
+	
+	public Paciente converterParaModelo() {
+		Paciente paciente = new Paciente();
+		paciente.setIdPaciente(idPaciente);
+		paciente.setNome(nome);
+		paciente.setSobrenome(sobrenome);
+		paciente.setDataNascimento(dataNascimento);
+		paciente.setEndereco(endereco.converterParaModelo());
+		return paciente;
+	}
 	public void setIdPaciente(Long idPaciente) {
 		this.idPaciente = idPaciente;
 	}

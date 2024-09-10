@@ -1,12 +1,15 @@
 package br.edu.utfpr.td.tsi.DAO.MongoDB.colecoes;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 
 @Document("bairro")
 public class BairroCollection {
 
 	@Id
-	private String id;
+	private Long id;
 	private String nome;
 
 	public BairroCollection() {
@@ -25,11 +28,11 @@ public class BairroCollection {
 		return bairro;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

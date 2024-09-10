@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.DAO.MedicoDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
+import br.edu.utfpr.td.tsi.MODELO.Medico;
 
 
 @Repository
@@ -14,8 +15,9 @@ public class JPAMedicoDAO implements MedicoDAO{
     MedicoRepository medicoRepository;
 
     @Override
-    public void inserir(MedicoEntity medico) {
-        medicoRepository.save(medico);
+    public void inserir(Medico medico) {
+        MedicoEntity medicoEntity = new MedicoEntity(medico);
+        medicoRepository.save(medicoEntity);
     }
 
     @Override

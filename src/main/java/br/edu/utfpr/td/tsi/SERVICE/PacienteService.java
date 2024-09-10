@@ -2,14 +2,14 @@ package br.edu.utfpr.td.tsi.SERVICE;
 
 import java.util.List;
 
-import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.PacienteEntity;
+import br.edu.utfpr.td.tsi.MODELO.Paciente;
 
 
 public interface PacienteService {
 
-    public void cadastrar(PacienteEntity paciente);
+    public void cadastrar(Paciente paciente);
     
-    public List<PacienteEntity> listarTodos();
+    public List<Paciente> listarTodos();
 
     public void remover(Long id);
 

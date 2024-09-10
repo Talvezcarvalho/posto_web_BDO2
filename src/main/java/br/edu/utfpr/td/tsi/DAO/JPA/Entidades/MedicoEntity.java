@@ -23,6 +23,16 @@ public class MedicoEntity {
     public MedicoEntity() {
     }
 
+    public MedicoEntity(Long idMedico, String nome, String sobrenome, EspecialidadeEntity especialidade) {
+        this.idMedico = idMedico;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.especialidade = especialidade;
+    }
+
+    public conv
+    }
+
     public void setIdMedico(Long idMedico) {
         this.idMedico = idMedico;
     }
