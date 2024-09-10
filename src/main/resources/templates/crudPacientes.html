@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dados Pacientes</title>
+    <title>Posto de Saude Web</title>
 </head>
 <body>
-    
+    <h1>Pacientes cadastrados</h1>
+    <table>
+		<tr>
+
+			<th>Nome</th>
+            <th>sobrnome</th>
+            <th>Data Nascimento</th>
+
+		</tr>
+		<tr th:each="paciente : ${pacientes}">
+        <td th:text="${paciente.nome}"></td>
+        <td th:text="${paciente.sobrenoma}"></td>
+        <td th:text="${paciente.dataNascimento}"></td>
+      </tr>
+	</table>
 </body>
 </html>

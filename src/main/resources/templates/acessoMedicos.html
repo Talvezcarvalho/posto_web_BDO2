@@ -1,0 +1,28 @@
+<!-- listar médicos -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posto de Saúde Web</title>
+</head>
+
+<body>
+    <h1>Medicos</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CRM</th>
+        </tr>
+        <tr th:each="medico : ${medicos}">
+            <td th:text="${medico.id}"></td>
+            <td th:text="${medico.nome}"></td>
+            <td th:text="${medico.crm}"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

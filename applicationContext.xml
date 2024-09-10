@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/tx
-		https://www.springframework.org/schema/tx/spring-tx.xsd
-		http://www.springframework.org/schema/aop
-		https://www.springframework.org/schema/aop/spring-aop.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx
+           https://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/aop
+           https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="MysqlBairroDAO" primary="true"
-    class="br.edu.utfpr.td.tsi.DAO.MysqlBairroDAO">
-    </bean>
-    <bean id="dataSource" 
-        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/posto.saude"/>
-	    <property name="username" value="root"/>
-	    <property name="password" value="Dinorega"/>
-        </bean>
+    <bean id="JpaDbBairroDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPABairroDAO" primary="true" />
+    <bean id="MongoBairroDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBBairroDAO" primary="false" />
+
+    <bean id="JpaDbEnderecoDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPAEnderecoDAO" primary="true" />
+    <bean id="MongoEnderecoDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBEnderecoDAO" primary="false" />
+
+    <bean id="JpaDbEspecialidadeDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPAEspecialidadeDAO" primary="true" />
+    <bean id="MongoEspecialidadeDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBEspecialidadeDAO" primary="false" />
+
+    <bean id="JpaDbConsultaDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPAConsultaDAO" primary="true" />
+    <bean id="MongoConsultaDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBConsultaDAO" primary="false" />
+
+    <bean id="JpaDbMedicoDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPAMedicoDAO" primary="true" />
+    <bean id="MongoMedicoDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBMedicoDAO" primary="false" />
+
+    <bean id="JpaDbPacienteDao" class="br.edu.utfpr.td.tsi.DAO.JPA.JPAPacienteDAO" primary="true" />
+    <bean id="MongoPacienteDAO" class="br.edu.utfpr.td.tsi.DAO.MongoDB.MongoDBPacienteDAO" primary="false" />
+
 </beans>

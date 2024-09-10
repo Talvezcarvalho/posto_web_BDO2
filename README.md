@@ -132,6 +132,6 @@ posto_web_BDO2/
 - Tailwind CSS
 - Maven
 - Node.js e npm
-- MySQL
+- Postgres
 
 Para mais detalhes sobre cada tecnologia e sua configuração, consulte a documentação respectiva.

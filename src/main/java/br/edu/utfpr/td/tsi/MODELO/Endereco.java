@@ -1,68 +1,77 @@
 package br.edu.utfpr.td.tsi.MODELO;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "endereco", schema = "posto.saude")
 public class Endereco {
-<<<<<<< HEAD
-  private Long id;
-	private String logradouro;
-=======
-	@Id
-	@Column(name = "idendereco")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String logradouro; 
->>>>>>> refs/remotes/origin/main
-	private String numero;
-	private String cep;
 
-	@ManyToOne
-	@JoinColumn(name = "idbairro",referencedColumnName = "idbairro")
-	private Bairro bairro;
+    private Long id;
+    private String logradouro;
+    private String numero;
+    private String cep;
+    private Bairro bairro;
 
-	public Long getID() {
-		return id;
-	}
-	
-	public String getLogradouro() {
-		return logradouro;
-	}
+    // Construtor vazio (padrão)
+    public Endereco() {
+    }
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+    // Construtor com parâmetros
+    public Endereco(Long id, String logradouro, String numero, String cep, Bairro bairro) {
+        this.id = id;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.cep = cep;
+        this.bairro = bairro;
+    }
 
-	public String getNumero() {
-		return numero;
-	}
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public String getLogradouro() {
+        return logradouro;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
 
-	public Bairro getBairro() {
-		return bairro;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public void setBairro(Bairro bairro) {
-		this.bairro = bairro;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
+    // Método toString()
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "id=" + id +
+                ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
+                ", cep='" + cep + '\'' +
+                ", bairro=" + bairro +
+                '}';
+    }
 }
 
