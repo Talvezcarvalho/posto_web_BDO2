@@ -9,31 +9,29 @@ import br.edu.utfpr.td.tsi.MODELO.Especialidade;
 public class EspecialidadeCollection {
 
     @Id
-    private Long idEspecialidade;
+    private String idEspecialidade;
     private String descricao;
-    
-    
+
     public EspecialidadeCollection() {
     }
 
     public EspecialidadeCollection(Especialidade especialidade) {
-        this.idEspecialidade = especialidade.getIdEspecialidade();
+        this.idEspecialidade = especialidade.getIdEspecialidade().toString();
         this.descricao = especialidade.getDescricao();
     }
 
     public Especialidade converterParaModelo() {
         Especialidade especialidade = new Especialidade();
-        especialidade.setIdEspecialidade(idEspecialidade);
+        especialidade.setIdEspecialidade(Long.parseLong(idEspecialidade));
         especialidade.setDescricao(descricao);
-       
         return especialidade;
     }
 
-    public Long getIdEspecialidade() {
+    public String getIdEspecialidade() {
         return idEspecialidade;
     }
 
-    public void setIdEspecialidade(Long idEspecialidade) {
+    public void setIdEspecialidade(String idEspecialidade) {
         this.idEspecialidade = idEspecialidade;
     }
 
@@ -45,4 +43,8 @@ public class EspecialidadeCollection {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return "EspecialidadeCollection [idEspecialidade=" + idEspecialidade + ", descricao=" + descricao + "]";
+    }
 }

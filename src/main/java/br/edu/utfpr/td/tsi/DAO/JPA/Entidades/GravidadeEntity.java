@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.edu.utfpr.td.tsi.MODELO.Gravidade;
+
 @Entity
 @Table(name = "gravidade" , schema = "posto_saude")
 public class GravidadeEntity {
@@ -18,6 +20,17 @@ public class GravidadeEntity {
     private String descricao;
 
     public GravidadeEntity() {
+    }
+    public GravidadeEntity(Gravidade gravidade) {
+        this.idGravidade = gravidade.getIdGravidade();
+        this.descricao = gravidade.getDescricao();
+    }
+
+    public Gravidade converterParaModelo() {
+        Gravidade gravidade = new Gravidade();
+        gravidade.setIdGravidade(idGravidade);
+        gravidade.setDescricao(descricao);
+        return gravidade;
     }
 
     public void setDescricao(String descricao) {

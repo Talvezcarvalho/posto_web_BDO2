@@ -9,33 +9,31 @@ import br.edu.utfpr.td.tsi.MODELO.Doenca;
 public class DoencaCollection {
 
     @Id
-    private Long idDoenca;
+    private String idDoenca; 
     private String descricao;
 
     // Construtor vazio
     public DoencaCollection() {
     }
 
-    // Construtor que converte o modelo original para a collection do MongoDB
     public DoencaCollection(Doenca doenca) {
-        this.idDoenca = doenca.getIdDoenca();
+        this.idDoenca = doenca.getIdDoenca().toString();
         this.descricao = doenca.getDescricao();
     }
 
-    // Método para converter a collection de volta para o modelo original
     public Doenca converterParaModelo() {
         Doenca doenca = new Doenca();
-        doenca.setIdDoenca(idDoenca);
+        doenca.setIdDoenca(Long.parseLong(idDoenca)); 
         doenca.setDescricao(descricao);
         return doenca;
     }
 
     // Getters e Setters
-    public Long getIdDoenca() {
+    public String getIdDoenca() {
         return idDoenca;
     }
 
-    public void setIdDoenca(Long idDoenca) {
+    public void setIdDoenca(String idDoenca) {
         this.idDoenca = idDoenca;
     }
 

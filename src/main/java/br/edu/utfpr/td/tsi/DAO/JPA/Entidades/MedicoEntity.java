@@ -2,6 +2,8 @@ package br.edu.utfpr.td.tsi.DAO.JPA.Entidades;
 
 import javax.persistence.*;
 
+import br.edu.utfpr.td.tsi.MODELO.Medico;
+
 @Entity
 @Table(name = "medico", schema = "posto_saude")
 public class MedicoEntity {
@@ -23,15 +25,22 @@ public class MedicoEntity {
     public MedicoEntity() {
     }
 
-    public MedicoEntity(Long idMedico, String nome, String sobrenome, EspecialidadeEntity especialidade) {
-        this.idMedico = idMedico;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.especialidade = especialidade;
+    public MedicoEntity(Medico medico) {
+        this.idMedico = medico.getIdMedico();  
+        this.nome = medico.getNome();          
+        this.sobrenome = medico.getSobrenome();
+        this.especialidade = new EspecialidadeEntity(medico.getEspecialidade());
     }
 
-    public conv
+    public Medico converterParaModelo() {
+        Medico medico = new Medico();
+        medico.setIdMedico(idMedico);
+        medico.setNome(nome);
+        medico.setSobrenome(sobrenome);
+        medico.setEspecialidade(especialidade.converterParaModelo());
+        return medico;
     }
+    
 
     public void setIdMedico(Long idMedico) {
         this.idMedico = idMedico;

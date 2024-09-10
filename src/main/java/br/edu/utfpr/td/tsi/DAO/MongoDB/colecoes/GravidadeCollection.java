@@ -9,7 +9,7 @@ import br.edu.utfpr.td.tsi.MODELO.Gravidade;
 public class GravidadeCollection {
 
     @Id
-    private Long idGravidade;
+    private String idGravidade;
     private String descricao;
 
     // Construtor vazio
@@ -18,24 +18,24 @@ public class GravidadeCollection {
 
     // Construtor que aceita a classe modelo
     public GravidadeCollection(Gravidade gravidade) {
-        this.idGravidade = gravidade.getIdGravidade();
+        this.idGravidade = gravidade.getIdGravidade().toString();
         this.descricao = gravidade.getDescricao();
     }
 
     // Método para converter de volta para o modelo Java
     public Gravidade converterParaModelo() {
         Gravidade gravidade = new Gravidade();
-        gravidade.setIdGravidade(idGravidade);
+        gravidade.setIdGravidade(Long.parseLong(idGravidade));
         gravidade.setDescricao(descricao);
         return gravidade;
     }
 
     // Getters e Setters
-    public Long getIdGravidade() {
+    public String getIdGravidade() {
         return idGravidade;
     }
 
-    public void setIdGravidade(Long idGravidade) {
+    public void setIdGravidade(String idGravidade) {
         this.idGravidade = idGravidade;
     }
 
@@ -45,5 +45,10 @@ public class GravidadeCollection {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "GravidadeCollection [idGravidade=" + idGravidade + ", descricao=" + descricao + "]";
     }
 }

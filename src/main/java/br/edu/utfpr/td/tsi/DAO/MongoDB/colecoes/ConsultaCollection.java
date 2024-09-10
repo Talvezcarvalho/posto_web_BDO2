@@ -11,44 +11,40 @@ import br.edu.utfpr.td.tsi.MODELO.Consulta;
 public class ConsultaCollection {
 
     @Id
-    private Long idConsulta;
+    private String idConsulta; 
     private LocalDate dataConsulta;
     private String situacao;
     private MedicoCollection medico;
     private PacienteCollection paciente;
-    private DiagnosticoCollection diagnostico;
 
-    // Construtor vazio
     public ConsultaCollection() {
     }
 
     public ConsultaCollection(Consulta consulta) {
-        this.idConsulta = consulta.getIdConsulta();
+        this.idConsulta = consulta.getIdConsulta().toString();  
         this.dataConsulta = consulta.getDataConsulta();
         this.situacao = consulta.getSituacao();
         this.medico = new MedicoCollection(consulta.getMedico());
         this.paciente = new PacienteCollection(consulta.getPaciente());
-        this.diagnostico = new DiagnosticoCollection(consulta.getDiagnostico());
     }
 
-    // Método para converter a collection de volta para o modelo original
+  
     public Consulta converterParaModelo() {
         Consulta consulta = new Consulta();
-        consulta.setIdConsulta(idConsulta);
+        consulta.setIdConsulta(Long.parseLong(idConsulta)); 
         consulta.setDataConsulta(dataConsulta);
         consulta.setSituacao(situacao);
         consulta.setMedico(medico.converterParaModelo());
         consulta.setPaciente(paciente.converterParaModelo());
-        consulta.setDiagnostico(diagnostico.converterParaModelo());
         return consulta;
     }
 
-    // Getters e Setters
-    public Long getIdConsulta() {
+  
+    public String getIdConsulta() {
         return idConsulta;
     }
 
-    public void setIdConsulta(Long idConsulta) {
+    public void setIdConsulta(String idConsulta) {
         this.idConsulta = idConsulta;
     }
 
@@ -84,18 +80,9 @@ public class ConsultaCollection {
         this.paciente = paciente;
     }
 
-    public DiagnosticoCollection getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(DiagnosticoCollection diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
-    // Método toString
     @Override
     public String toString() {
         return "ConsultaCollection [idConsulta=" + idConsulta + ", dataConsulta=" + dataConsulta + ", situacao=" + situacao
-                + ", medico=" + medico + ", paciente=" + paciente + ", diagnostico=" + diagnostico + "]";
+                + ", medico=" + medico + ", paciente=" + paciente + "]";
     }
 }

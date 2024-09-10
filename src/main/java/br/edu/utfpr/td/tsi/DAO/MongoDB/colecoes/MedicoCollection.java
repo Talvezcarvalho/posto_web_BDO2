@@ -9,17 +9,16 @@ import br.edu.utfpr.td.tsi.MODELO.Medico;
 public class MedicoCollection {
 
     @Id
-    private Long id;
+    private String id;
     private String nome;
     private String sobrenome;
     private EspecialidadeCollection especialidade;
 
-    // Construtor vazio
     public MedicoCollection() {
     }
 
     public MedicoCollection(Medico medico) {
-        this.id = medico.getIdMedico();
+        this.id = medico.getIdMedico().toString();
         this.nome = medico.getNome();
         this.sobrenome = medico.getSobrenome();
         if (medico.getEspecialidade() != null) {
@@ -29,7 +28,7 @@ public class MedicoCollection {
 
     public Medico converterParaModelo() {
         Medico medico = new Medico();
-        medico.setIdMedico(id);
+        medico.setIdMedico(Long.parseLong(id));
         medico.setNome(nome);
         medico.setSobrenome(sobrenome);
         if (especialidade != null) {
@@ -39,11 +38,11 @@ public class MedicoCollection {
     }
 
     // Getters e Setters
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

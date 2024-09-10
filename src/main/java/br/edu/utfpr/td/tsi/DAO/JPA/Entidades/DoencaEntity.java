@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.edu.utfpr.td.tsi.MODELO.Doenca;
 @Entity
 @Table(name = "doenca", schema = "posto_saude")
 public class DoencaEntity {
@@ -18,6 +19,18 @@ public class DoencaEntity {
     private String descricao;
 
     public DoencaEntity() {
+    }
+
+    public DoencaEntity(Doenca doenca) {
+        this.idDoenca = doenca.getIdDoenca();
+        this.descricao = doenca.getDescricao();
+    }
+
+    public Doenca converterParaModelo() {
+        Doenca doenca = new Doenca();
+        doenca.setIdDoenca(idDoenca);
+        doenca.setDescricao(descricao);
+        return doenca;
     }
 
     public void setDescricao(String descricao) {
@@ -35,5 +48,4 @@ public class DoencaEntity {
     public void setIdDoenca(Long idDoenca) {
         this.idDoenca = idDoenca;
     }
-    
 }

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.edu.utfpr.td.tsi.MODELO.Diagnostico;
+
 
 @Entity
 @Table(name = "diagnostico", schema = "posto_saude")
@@ -26,16 +28,59 @@ public class DiagnosticoEntity {
     private String observacao;
 
     @ManyToOne
-    @JoinColumn(name = "idConsulta", referencedColumnName = "idConsulta")
-    private ConsultaEntity consulta;  
-
-    @ManyToOne
     @JoinColumn(name = "idDoenca", referencedColumnName = "idDoenca", nullable = false)
     private DoencaEntity doenca;
 
 
+    public DiagnosticoEntity() {
+    }
+
+    public DiagnosticoEntity(Diagnostico diagnostico) {
+        this.idDiagnostico = diagnostico.getIdDiagnostico();
+        this.gravidade = new GravidadeEntity(diagnostico.getGravidade());
+        this.observacao = diagnostico.getObservacao();
+        this.doenca = new DoencaEntity(diagnostico.getDoenca());
+    }
+
+    public Diagnostico converterParaModelo() {
+        Diagnostico diagnostico = new Diagnostico();
+        diagnostico.setIdDiagnostico(idDiagnostico);
+        diagnostico.setGravidade(gravidade.converterParaModelo());
+        diagnostico.setObservacao(observacao);
+        diagnostico.setDoenca(doenca.converterParaModelo());
+        return diagnostico;
+    }
 
 
+    public void setIdDiagnostico(Long idDiagnostico) {
+        this.idDiagnostico = idDiagnostico;
+    }
 
+    public Long getIdDiagnostico() {
+        return idDiagnostico;
+    }
 
+    public GravidadeEntity getGravidade() {
+        return gravidade;
+    }
+
+    public void setGravidade(GravidadeEntity gravidade) {
+        this.gravidade = gravidade;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public DoencaEntity getDoenca() {
+        return doenca;
+    }
+
+    public void setDoenca(DoencaEntity doenca) {
+        this.doenca = doenca;
+    }
 }

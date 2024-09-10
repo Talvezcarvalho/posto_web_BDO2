@@ -9,7 +9,7 @@ import br.edu.utfpr.td.tsi.MODELO.Bairro;
 public class BairroCollection {
 
 	@Id
-	private Long id;
+	private String id;
 	private String nome;
 
 	public BairroCollection() {
@@ -17,22 +17,22 @@ public class BairroCollection {
 	}
 	
 	public BairroCollection(Bairro bairro) {
-		this.id = bairro.getId();
+		this.id = bairro.getId().toString();
 		this.nome = bairro.getNome();
 	}
 	
 	public Bairro converterParaModelo() {
 		Bairro bairro = new Bairro();
-		bairro.setId(id);
+		bairro.setId(Long.parseLong(id));
 		bairro.setNome(nome);
 		return bairro;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

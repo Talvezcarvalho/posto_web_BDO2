@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.edu.utfpr.td.tsi.MODELO.Consulta;
+
 @Entity
 @Table(name = "consulta", schema = "posto_saude")
 public class ConsultaEntity {
@@ -38,11 +40,27 @@ public class ConsultaEntity {
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente",nullable = false)
     private PacienteEntity paciente;
 
-    @ManyToOne
-    @JoinColumn(name = "idDiagnostico", referencedColumnName = "idDiagnostico" ,nullable = true)
-    private DiagnosticoEntity diagnostico;
 
     public ConsultaEntity() {
+    }
+
+    public ConsultaEntity(Consulta consulta) {
+        this.idConsulta = consulta.getIdConsulta();
+        this.dataConsulta = consulta.getDataConsulta();
+        this.situacao = consulta.getSituacao();
+        this.medico = new MedicoEntity(consulta.getMedico());
+        this.paciente = new PacienteEntity(consulta.getPaciente());
+    }
+
+
+    public Consulta converterParaModelo() {
+        Consulta consulta = new Consulta();
+        consulta.setIdConsulta(idConsulta);
+        consulta.setDataConsulta(dataConsulta);
+        consulta.setSituacao(situacao);
+        consulta.setMedico(medico.converterParaModelo());
+        consulta.setPaciente(paciente.converterParaModelo());
+        return consulta;
     }
 
     public void setIdConsulta(Long idConsulta) {
@@ -76,15 +94,6 @@ public class ConsultaEntity {
     public void setPaciente(PacienteEntity paciente) {
         this.paciente = paciente;
     }
-
-    public DiagnosticoEntity getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(DiagnosticoEntity diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
     public String getSituacao() {
         return situacao;
     }

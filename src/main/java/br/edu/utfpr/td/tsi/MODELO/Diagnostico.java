@@ -15,7 +15,6 @@ public class Diagnostico {
     private Long idDiagnostico;
     private Gravidade gravidade;
     private String observacao;
-    private Consulta consulta;
     private Doenca doenca;
 
     // Construtores
@@ -26,7 +25,6 @@ public class Diagnostico {
         this.idDiagnostico = idDiagnostico;
         this.gravidade = gravidade;
         this.observacao = observacao;
-        this.consulta = consulta;
         this.doenca = doenca;
     }
 
@@ -55,14 +53,6 @@ public class Diagnostico {
         this.observacao = observacao;
     }
 
-    public Consulta getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
-    }
-
     public Doenca getDoenca() {
         return doenca;
     }
@@ -78,7 +68,7 @@ public class Diagnostico {
                 "idDiagnostico=" + idDiagnostico +
                 ", gravidade=" + gravidade +
                 ", observacao='" + observacao + '\'' +
-                ", consulta=" + consulta +
+                ", consulta="  +
                 ", doenca=" + doenca +
                 '}';
     }

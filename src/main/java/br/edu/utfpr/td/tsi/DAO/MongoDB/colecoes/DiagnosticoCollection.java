@@ -9,41 +9,37 @@ import br.edu.utfpr.td.tsi.MODELO.Diagnostico;
 public class DiagnosticoCollection {
 
     @Id
-    private Long idDiagnostico;
+    private String idDiagnostico; 
     private GravidadeCollection gravidade;
     private String observacao;
-    private ConsultaCollection consulta;
     private DoencaCollection doenca;
 
-    // Construtores
     public DiagnosticoCollection() {
     }
 
     public DiagnosticoCollection(Diagnostico diagnostico) {
-        this.idDiagnostico = diagnostico.getIdDiagnostico();
+        this.idDiagnostico = diagnostico.getIdDiagnostico().toString();
         this.gravidade = new GravidadeCollection(diagnostico.getGravidade());
         this.observacao = diagnostico.getObservacao();
-        this.consulta = new ConsultaCollection(diagnostico.getConsulta());
         this.doenca = new DoencaCollection(diagnostico.getDoenca());
     }
 
-    // Método para converter de volta para o modelo Java
+  
     public Diagnostico converterParaModelo() {
         Diagnostico diagnostico = new Diagnostico();
-        diagnostico.setIdDiagnostico(idDiagnostico);
+        diagnostico.setIdDiagnostico(Long.parseLong(idDiagnostico));
         diagnostico.setGravidade(gravidade.converterParaModelo());
         diagnostico.setObservacao(observacao);
-        diagnostico.setConsulta(consulta.converterParaModelo());
         diagnostico.setDoenca(doenca.converterParaModelo());
         return diagnostico;
     }
 
     // Getters e Setters
-    public Long getIdDiagnostico() {
+    public String getIdDiagnostico() {
         return idDiagnostico;
     }
 
-    public void setIdDiagnostico(Long idDiagnostico) {
+    public void setIdDiagnostico(String idDiagnostico) {
         this.idDiagnostico = idDiagnostico;
     }
 
@@ -63,14 +59,6 @@ public class DiagnosticoCollection {
         this.observacao = observacao;
     }
 
-    public ConsultaCollection getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(ConsultaCollection consulta) {
-        this.consulta = consulta;
-    }
-
     public DoencaCollection getDoenca() {
         return doenca;
     }
@@ -83,10 +71,9 @@ public class DiagnosticoCollection {
     @Override
     public String toString() {
         return "DiagnosticoCollection{" +
-                "idDiagnostico=" + idDiagnostico +
+                "idDiagnostico='" + idDiagnostico + '\'' +
                 ", gravidade=" + gravidade +
                 ", observacao='" + observacao + '\'' +
-                ", consulta=" + consulta +
                 ", doenca=" + doenca +
                 '}';
     }

@@ -9,7 +9,6 @@ public class Consulta {
     private String situacao;
     private Medico medico;
     private Paciente paciente;
-    private Diagnostico diagnostico;
 
     // Construtor vazio
     public Consulta() {
@@ -47,15 +46,6 @@ public class Consulta {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
-    public Diagnostico getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(Diagnostico diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
     public String getSituacao() {
         return situacao;
     }
@@ -68,7 +58,7 @@ public class Consulta {
     @Override
     public String toString() {
         return "Consulta [idConsulta=" + idConsulta + ", dataConsulta=" + dataConsulta + ", situacao=" + situacao
-                + ", medico=" + medico + ", paciente=" + paciente + ", diagnostico=" + diagnostico + "]";
+                + ", medico=" + medico + ", paciente=" + paciente + ", diagnostico="  + "]";
     }
 }
 

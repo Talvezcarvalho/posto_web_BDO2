@@ -9,72 +9,79 @@ import br.edu.utfpr.td.tsi.MODELO.Endereco;
 public class EnderecoCollection {
 
     @Id
-	private Long id;
-	private String logradouro;
-	private String numero;
-	private String cep;
-	private BairroCollection bairro;
+    private String id; 
+    private String logradouro;
+    private String numero;
+    private String cep;
+    private BairroCollection bairro;
 
-	public EnderecoCollection() {
+    public EnderecoCollection() {
+    }
 
-	}
+    public EnderecoCollection(Endereco endereco) {
+        this.id = endereco.getId().toString();  
+        this.logradouro = endereco.getLogradouro();
+        this.numero = endereco.getNumero();
+        this.cep = endereco.getCep();
+        this.bairro = new BairroCollection(endereco.getBairro());
+    }
 
-	public EnderecoCollection(Endereco endereco) {
-		this.id = endereco.getId();
-		this.logradouro = endereco.getLogradouro();
-		this.numero = endereco.getNumero();
-		this.cep = endereco.getCep();
-		this.bairro = new BairroCollection(endereco.getBairro());
-	}
+    
+    public Endereco converterParaModelo() {
+        Endereco end = new Endereco();
+        end.setId(Long.parseLong(id));
+        end.setLogradouro(logradouro);
+        end.setNumero(numero);
+        end.setCep(cep);
+        end.setBairro(bairro.converterParaModelo());
+        return end;
+    }
 
-	public Endereco converterParaModelo() {
-		Endereco end = new Endereco();
-		end.setId(id);
-		end.setCep(cep);
-		end.setLogradouro(logradouro);
-		end.setNumero(numero);
-		end.setBairro(bairro.converterParaModelo());
-		return end;
-	}
+    // Getters e Setters
+    public String getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public String getLogradouro() {
+        return logradouro;
+    }
 
-	public String getLogradouro() {
-		return logradouro;
-	}
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public String getNumero() {
-		return numero;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public BairroCollection getBairro() {
+        return bairro;
+    }
 
-	public BairroCollection getBairro() {
-		return bairro;
-	}
+    public void setBairro(BairroCollection bairro) {
+        this.bairro = bairro;
+    }
 
-	public void setBairro(BairroCollection bairro) {
-		this.bairro = bairro;
-	}
-
+    // Método toString
+    @Override
+    public String toString() {
+        return "EnderecoCollection [id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", cep=" + cep
+                + ", bairro=" + bairro + "]";
+    }
 }

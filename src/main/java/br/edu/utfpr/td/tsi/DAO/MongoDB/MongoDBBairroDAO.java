@@ -12,7 +12,8 @@ import br.edu.utfpr.td.tsi.DAO.MongoDB.colecoes.BairroCollection;
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 
 @Repository
-public class MongoDBBairroRepositoryIMPL implements BairroDAO {
+public class MongoDBBairroDAO implements BairroDAO {
+    
     @Autowired
     private MongoDBBairroRepository repository;
 
@@ -22,30 +23,27 @@ public class MongoDBBairroRepositoryIMPL implements BairroDAO {
     }
 
     @Override
-    public java.util.List<Bairro> listarTodos() {
-        List<Bairro> bairros = new ArrayList<Bairro>();
-		Iterable<BairroCollection> iterable = repository.findAll();
-		for (BairroCollection bairroCollection : iterable) {
-			bairros.add(bairroCollection.converterParaModelo());
-		}
-		return bairros;
+    public List<Bairro> listarTodos() {
+        List<Bairro> bairros = new ArrayList<>();
+        Iterable<BairroCollection> iterable = repository.findAll();
+        for (BairroCollection bairroCollection : iterable) {
+            bairros.add(bairroCollection.converterParaModelo());
+        }
+        return bairros;
     }
 
     @Override
-    public void remover (Long id) {
-        repository.deleteById(id);
+    public void remover(Long id) {
+        repository.deleteById(id.toString()); // Converte Long para String
     }
 
     @Override
     public void atualizar(Long id, Bairro bairro) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
     }
 
     @Override
     public BairroEntity procurar(Long id) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'procurar'");
     }
-
 }

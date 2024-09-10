@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.edu.utfpr.td.tsi.MODELO.Especialidade;
+
 @Entity
 @Table(name = "especialidade", schema = "posto_saude")
 public class EspecialidadeEntity {
@@ -24,6 +26,22 @@ public class EspecialidadeEntity {
     private Collection<MedicoEntity> medicos;
 
     public EspecialidadeEntity() {
+    }
+
+
+
+   public EspecialidadeEntity(Especialidade especialidade) {
+    this.idEspecialidade = especialidade.getIdEspecialidade();
+    this.descricao = especialidade.getDescricao();
+}
+
+
+
+    public Especialidade converterParaModelo() {
+        Especialidade especialidade = new Especialidade();
+        especialidade.setIdEspecialidade(idEspecialidade);
+        especialidade.setDescricao(descricao);
+        return especialidade;
     }
 
     public void setDescricao(String descricao) {
