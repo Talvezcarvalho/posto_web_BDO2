@@ -7,7 +7,7 @@ import br.edu.utfpr.td.tsi.DAO.ConsultaDAO;
 import br.edu.utfpr.td.tsi.DAO.MongoDB.colecoes.ConsultaCollection;
 import br.edu.utfpr.td.tsi.MODELO.Consulta;
 
-@Repository("MongoBairroDAO")
+@Repository
 public class MongoDBConsultaDAO implements ConsultaDAO {
 
     @Autowired

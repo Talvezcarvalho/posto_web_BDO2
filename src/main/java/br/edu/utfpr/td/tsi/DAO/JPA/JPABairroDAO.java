@@ -10,7 +10,7 @@ import br.edu.utfpr.td.tsi.DAO.BairroDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.BairroEntity;
 import br.edu.utfpr.td.tsi.MODELO.Bairro;
 
-@Repository("JpaBairroDAO")
+@Repository
 public class JPABairroDAO implements BairroDAO {
     
     @Autowired 

@@ -3,12 +3,15 @@ package br.edu.utfpr.td.tsi.DAO.MongoDB;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.DAO.EspecialidadeDAO;
+import br.edu.utfpr.td.tsi.DAO.JPA.EspecialidadeRepository;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.EspecialidadeEntity;
 import br.edu.utfpr.td.tsi.DAO.MongoDB.colecoes.EspecialidadeCollection;
 import br.edu.utfpr.td.tsi.MODELO.Especialidade;
 
+@Repository
 public class MongoDBEspecialidadeDAO implements EspecialidadeDAO {
 
     @Autowired
@@ -38,9 +41,9 @@ public class MongoDBEspecialidadeDAO implements EspecialidadeDAO {
     }
 
     @Override
-    public EspecialidadeEntity procurarPorId(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'procurarPorId'");
+    public Especialidade procurarPorId(Long id) {
+        return especialidadeRepository.findByIdEspecialidade(id.toString()).converterParaModelo();
+
     }
     
 }

@@ -12,7 +12,7 @@ public interface EspecialidadeDAO {
 
     public java.util.List<Especialidade> listarTodos();
 
-    public EspecialidadeEntity procurarPorId(Long id);
+    public Especialidade procurarPorId(Long id);
 
 
     

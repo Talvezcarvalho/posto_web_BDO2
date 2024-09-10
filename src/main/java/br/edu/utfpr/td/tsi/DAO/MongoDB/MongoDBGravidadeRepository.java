@@ -7,6 +7,6 @@ import br.edu.utfpr.td.tsi.MODELO.Gravidade;
 
 public interface MongoDBGravidadeRepository extends MongoRepository<GravidadeCollection, String> {
 
-    public Gravidade findOneById(String id);
+    public GravidadeCollection findOneByIdGravidade(String idGravidade);
     
 }

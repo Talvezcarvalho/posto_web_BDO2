@@ -5,10 +5,8 @@ public class Bairro {
     private Long id;
     private String nome;
 
-    // Construtor vazio (padrão)
     public Bairro() {}
 
-    // Construtor com parâmetros
     public Bairro(String nome) {
         this.nome = nome;
     }

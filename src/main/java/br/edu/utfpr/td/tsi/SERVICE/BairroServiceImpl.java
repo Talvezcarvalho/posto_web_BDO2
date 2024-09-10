@@ -12,7 +12,7 @@ import br.edu.utfpr.td.tsi.MODELO.Bairro;
 public class BairroServiceImpl implements BairroService {
     
     @Autowired
-    @Qualifier("JpaBairroDAO")
+
     private BairroDAO bairroDAO;
 
     @Override
