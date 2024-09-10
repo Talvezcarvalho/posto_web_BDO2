@@ -2,19 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cadastrar Médico</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body class="bg-primary-dark dark:bg-gray-700">
     <div class="container mx-auto mt-10">
         <h2 class="text-2xl font-bold mb-5 text-white">Cadastrar Novo Médico</h2>
-        <form th:action="@{/cadastrarMedico}" th:object="${medico}" method="post" class="bg-white p-6 rounded-lg shadow-md">
+        <form action="cadastrarMedico" method="POST" class="bg-white p-6 rounded-lg shadow-md">
             <div class="mb-4">
                 <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
-                <input type="text" id="nome" th:field="*{nome}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" id="nome" name="nome" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Sobrenoma:</label>
-                <input type="email" id="email" th:field="*{email}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">sobrenome:</label>
+                <input type="sobrenome" id="sobrenome" tname="sobrenome" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label for="medico.especialidade" class="block text-gray-700 text-sm font-bold mb-2">Especialidade:</label>
+                <select id="especialidade" name="medico.especialidade" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <option value="" disabled selected>Selecione uma especialidade</option>
+                    <option th:each="especialidade : ${especialidades}"
+                            th:value="${especialidade.idEspecialidade}"
+                            th:text="${especialidade.descricao}">
+                    </option>
+                </select>
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit" class="bg-primary-dark hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

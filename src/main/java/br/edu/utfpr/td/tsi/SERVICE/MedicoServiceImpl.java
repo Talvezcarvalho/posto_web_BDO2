@@ -1,12 +1,14 @@
 package br.edu.utfpr.td.tsi.SERVICE;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.edu.utfpr.td.tsi.DAO.MedicoDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.JPAMedicoDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
 import br.edu.utfpr.td.tsi.MODELO.Medico;
 
+@Service
 public class MedicoServiceImpl implements MedicoService { 
 
     @Autowired

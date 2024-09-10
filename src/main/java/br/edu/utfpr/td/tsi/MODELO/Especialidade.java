@@ -6,7 +6,6 @@ public class Especialidade {
 
     private Long idEspecialidade;
     private String descricao;
-    private Collection<Medico> medicos;
 
     // Construtor vazio
     public Especialidade() {
@@ -27,14 +26,6 @@ public class Especialidade {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Collection<Medico> getMedicos() {
-        return medicos;
-    }
-
-    public void setMedicos(Collection<Medico> medicos) {
-        this.medicos = medicos;
     }
 
     // Método toString

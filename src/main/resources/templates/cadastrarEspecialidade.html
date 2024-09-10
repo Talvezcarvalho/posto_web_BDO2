@@ -6,12 +6,10 @@
     <title>Cadastrar Especialidade</title>
 </head>
 <body class="bg-primary-dark">
-    <label>Especialidade:</label>
-    <select name="medico.especialidade">
-        <option value="0">Selecione a especialidade</option>
-        <option th:each="especialidade : ${especialidades}" 
-            th:value="${especialidade.id}" th:text="${especialidade.nome}"></option>     
-    </select>   
-    <br/>
+    <form  method="POST" action="cadastrarEspecialidade">
+        <label>Especialidade:</label>
+            <input name="descricao" type="text" placeholder="Insira a especialidade"></input>
+            <input type="submit" value="cadastrar"></input>
+    </form>
 </body>
 </html>

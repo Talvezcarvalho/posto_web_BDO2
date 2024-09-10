@@ -28,5 +28,10 @@ public class EspecialidadeServiceImpl implements EspecialidadeService {
     public void remover(Long id) {
         especialidadeDAO.remover(id);
     }
+
+    @Override
+    public Especialidade procurar(Long id) {
+        return especialidadeDAO.procurarPorId(id);
+    }
     
 }

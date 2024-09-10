@@ -28,14 +28,13 @@ public class EspecialidadeEntity {
     public EspecialidadeEntity() {
     }
 
-
-
    public EspecialidadeEntity(Especialidade especialidade) {
+    if (especialidade == null) {
+        throw new IllegalArgumentException("Especialidade não pode ser nula");
+    }
     this.idEspecialidade = especialidade.getIdEspecialidade();
     this.descricao = especialidade.getDescricao();
 }
-
-
 
     public Especialidade converterParaModelo() {
         Especialidade especialidade = new Especialidade();

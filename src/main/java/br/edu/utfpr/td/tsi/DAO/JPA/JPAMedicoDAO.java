@@ -27,7 +27,6 @@ public class JPAMedicoDAO implements MedicoDAO{
         medicoRepository.save(medicoEntity);
     }
 
-
     @Override
     public void remover(Long id) {
         medicoRepository.deleteById(id);

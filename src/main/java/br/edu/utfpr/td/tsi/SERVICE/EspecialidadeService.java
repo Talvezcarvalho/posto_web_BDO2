@@ -11,4 +11,6 @@ public interface EspecialidadeService {
     public List<Especialidade> listarTodos();
 
     public void remover(Long id);
+
+    public Especialidade procurar(Long id);
 }

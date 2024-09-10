@@ -13,7 +13,5 @@ public interface EspecialidadeDAO {
     public java.util.List<Especialidade> listarTodos();
 
     public Especialidade procurarPorId(Long id);
-
-
     
 }

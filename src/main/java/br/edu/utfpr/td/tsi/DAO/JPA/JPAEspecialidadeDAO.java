@@ -1,5 +1,6 @@
 package br.edu.utfpr.td.tsi.DAO.JPA;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.td.tsi.DAO.EspecialidadeDAO;
 import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.EspecialidadeEntity;
+import br.edu.utfpr.td.tsi.DAO.JPA.Entidades.MedicoEntity;
 import br.edu.utfpr.td.tsi.MODELO.Especialidade;
+import br.edu.utfpr.td.tsi.MODELO.Medico;
 
 
 @Repository
@@ -30,8 +33,8 @@ public class JPAEspecialidadeDAO implements EspecialidadeDAO {
     }
 
     @Override
-    public EspecialidadeEntity procurarPorId(Long idEspecialidade) {
-        return especialidadeRepository.findById(idEspecialidade).get();
+    public Especialidade procurarPorId(Long idEspecialidade) {
+        return especialidadeRepository.findById(idEspecialidade).get().converterParaModelo();
     }
 
     @Override
@@ -42,7 +45,13 @@ public class JPAEspecialidadeDAO implements EspecialidadeDAO {
 
     @Override
     public List<Especialidade> listarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listarTodos'");
+        List<Especialidade> lista = new ArrayList<Especialidade>();
+
+		Iterable<EspecialidadeEntity> especialidades = especialidadeRepository.findAll();	
+		for (EspecialidadeEntity especialidadeEntity : especialidades) {
+			Especialidade especialidade = especialidadeEntity.converterParaModelo();
+			lista.add(especialidade);
+		}
+		return lista;
     }
 }
