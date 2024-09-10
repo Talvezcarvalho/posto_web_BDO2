@@ -1,0 +1,40 @@
+<!-- cadastrar Diagnostico e selecionar campos -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Diagnostico</title>
+</head>
+
+<body>
+    <h1>Cadastrar Diagnostico</h1>
+
+    <form method="POST" action="cadastrarDiagnostico">
+        <label>Gravidade:</label>
+        <select name="gravidade">
+            <option value="0">Selecione a gravidade</option>
+            <option th:each="gravidade : ${gravidades}" 
+                th:value="${gravidade.id}" th:text="${gravidade.descricao}"></option>
+        </select>
+        <br/>
+        <label>Observação:</label>
+        <input type="text" name="observacao" /> <br>
+        <input type="submit" value="cadastrar"/>
+        <label>Consulta:</label>
+        <select name="consulta.id">
+            <option value="0">Selecione a consulta</option>
+            <option th:each="consulta : ${consultas}" 
+                th:value="${consulta.id}" th:text="${consulta.id}"></option>
+        </select>
+        <br/>
+        <label>Doenca:</label>
+        <select name="doenca.id">
+            <option value="0">Selecione a doenca</option>
+            <option th:each="doenca : ${doencas}" 
+                th:value="${doenca.id}" th:text="${doenca.nome}"></option>
+        </select>
+        <br/>
+    </form>

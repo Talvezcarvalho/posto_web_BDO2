@@ -1,0 +1,27 @@
+<!-- listar Pacientes -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posto de Saúde Web</title>
+</head>
+
+<body>
+    <h1>Pacientes</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+        </tr>
+        <tr th:each="paciente : ${pacientes}">
+            <td th:text="${paciente.id}"></td>
+            <td th:text="${paciente.nome}"></td>
+            <td th:text="${paciente.cpf}"></td>
+        </tr>
+    </table>
+</body>
+</html>
